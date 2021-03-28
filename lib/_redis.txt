@@ -1,0 +1,50 @@
+
+wget http://download.redis.io/releases/redis-5.0.0.tar.gz
+
+执行make编译Redis：
+# make MALLOC=libc
+
+make && make install
+
+make
+make install
+
+./utils/install_server.sh
+
+
+
+外网无法访问
+更改redis.conf 文件
+
+bind 127.0.0.1
+protected-mode yes
+
+更改为
+
+# bind 127.0.0.1
+protected-mode no
+
+
+
+requirepass 123456
+
+设置密码无法重启
+vi /etc/init.d/redis
+stop 后面加  -a "123456"
+
+修改 redis-cli -a '123456'
+# $CLIEXEC -a "123456" -p $REDISPORT shutdown
+
+
+
+开机自启
+chkconfig redis_6379 on
+
+
+/etc/init.d/redis_6379 start
+service redis_6379 start
+
+/etc/init.d/redis_6379 stop
+service redis_6379 stop
+
+

@@ -1,0 +1,14 @@
+
+=
+
+[source,shell script]
+----
+
+key="INTSERV_CGIBIN_SESSION*"
+
+db=3
+password=taijiu2015
+
+redis-cli -n ${db} -a ${password} keys ${key} | xargs redis-cli -n ${db} -a ${password} del
+
+----

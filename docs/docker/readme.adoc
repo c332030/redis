@@ -1,0 +1,45 @@
+
+= docker redis
+
+[source,shell script]
+----
+
+image=redis
+tag=alpine
+
+docker pull redis:$tag
+
+name=redis
+
+port=6379
+
+program_home=/home/program
+config=/etc/redis.conf
+
+docker stop $name
+docker rm $name
+
+docker run -d \
+  \
+  --privileged=true \
+  --restart unless-stopped \
+  \
+  --log-opt max-size=10m \
+  --log-opt max-file=3 \
+  \
+  -v /etc/localtime:/etc/localtime \
+  \
+  --sysctl net.core.somaxconn=511 \
+  \
+  -v $program_home/$name/redis.conf:$config \
+  -v $program_home/$name/data:/data \
+  \
+  -p $port:6379 \
+  \
+  --name $name \
+  \
+  $image:$tag \
+  \
+  redis-server $config
+
+----
