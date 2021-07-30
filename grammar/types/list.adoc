@@ -3,4 +3,10 @@
 
 == 场景
 
-- 异步队列
+. 异步队列
+* lpush 和 rpush 入队列
+* lpop 和 rpop 出队列
+* blpop 和 brpop 阻塞式出队列
+
+    l: left, 队首
+    r: right, 队尾
