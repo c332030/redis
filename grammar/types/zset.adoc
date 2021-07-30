@@ -1,0 +1,14 @@
+
+= zset
+
+Sorted Set
+
+== 场景
+
+- 热搜排行榜
+
+    设置 score
+
+- 延迟队列
+
+    rangeByScore
