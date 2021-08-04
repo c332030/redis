@@ -1,0 +1,29 @@
+
+= 消息队列
+
+== 实现方式
+
+. list
+
+    LPUSH -> RPOP
+
+. Publish/Subscribe(Pub/Sub)
+
+    消息无法持久化，如果出现网络断开、Redis 宕机等，消息就会被丢弃。而且也没有 Ack 机制来保证数据的可靠性，假设一个消费者都没有，那消息就直接被丢弃了。
+
+    subscribe framework
+    publish framework spring
+
+    subscribe java.util // 订阅 java.util
+    psubscribe java.* // 通配符订阅
+    publish java.util
+
+. Sorted-Set
+
+    设置 score
+
+. streams
+
+    xadd
+
+
