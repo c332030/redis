@@ -4,11 +4,14 @@
 [source,shell script]
 ----
 
-key="SESSION*"
+key="session*"
 
-db=3
+db=0
 password=123456
+host=127.0.0.1
+port=6379
 
-redis-cli -n ${db} -a ${password} keys ${key} | xargs redis-cli -n ${db} -a ${password} del
+redis_command="redis-cli -h ${host} -p ${port} -n ${db} -a ${password}"
+${redis_command} keys ${key} | xargs ${redis_command} del
 
 ----
