@@ -3,6 +3,8 @@
 
 Sorted Set
 
+score 类型是：double
+
 == 场景
 
 - 热搜排行榜
