@@ -1,6 +1,18 @@
 
 = performance
 
+[source,shell script]
+----
+# 链接
+redis-cli -a 123456
+
+# 慢查询
+slowlog get
+
+# 服务器信息
+info
+----
+
 == 内部原因
 
 . 持久化
