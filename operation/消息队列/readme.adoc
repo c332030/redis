@@ -7,6 +7,8 @@
 
     LPUSH -> RPOP
 
+    不能重复消费
+
 . Publish/Subscribe(Pub/Sub)
 
     消息无法持久化，如果出现网络断开、Redis 宕机等，消息就会被丢弃。而且也没有 Ack 机制来保证数据的可靠性，假设一个消费者都没有，那消息就直接被丢弃了。
@@ -22,8 +24,8 @@
 
     设置 score
 
+    不能存储相同 value 的消息，并且不能阻塞读取消息
+
 . streams
 
     xadd
-
-
