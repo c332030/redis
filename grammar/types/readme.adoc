@@ -1,0 +1,19 @@
+
+= 数据类型
+
+== string
+一个键最大能存储512MB
+
+== hash
+
+类似于 map，每个 hash 可以存储 232 -1 键值对（40多亿）。
+
+适合存储对象
+
+[source,shell script]
+----
+HMSET myhash field1 "Hello" field2 "World"
+
+HGET myhash field1
+HGET myhash field2
+----

@@ -1,25 +1,33 @@
 
-# 数据类型
+= zset
 
-## string
-一个键最大能存储512MB
+Sorted Set
 
-## hash
-类似于 map，每个 hash 可以存储 232 -1 键值对（40多亿）。
+score 类型是：double
 
-适合存储对象
+== 场景
 
-```shell script
-HMSET myhash field1 "Hello" field2 "World"
+- 热搜排行榜
 
-HGET myhash field1
-HGET myhash field2
-```
+    设置 score
 
-## set
+- 延迟队列
+
+    rangeByScore
+
+== 数据结构
+
+这种链表加多级索引的结构，就是跳表
+
+image::跳表-1.png[]
+image::跳表-2.png[]
+
+== 使用
+
 集合中最大的成员数为 232 - 1(4294967295, 每个集合可存储40多亿个成员)。
 
-```shell script
+[source,shell script]
+----
 sadd runoob redis
 # (integer) 1
 
@@ -37,4 +45,4 @@ smembers runoob
 # 2) "rabitmq"
 # 3) "mongodb"
 
-```
+----
