@@ -1,0 +1,11 @@
+
+= redisson
+
+看门狗机制，自动续期
+
+[source,java]
+----
+RLock rLock = redisson.getLock("");
+rLock.tryLock(1000, 1000, TimeUnit.MILLISECONDS);
+
+----
