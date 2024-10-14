@@ -7,7 +7,7 @@
 
     LPUSH -> RPOP
 
-    不能重复消费
+    不能重复消费，不能分组消费
 
 . Publish/Subscribe(Pub/Sub)
 
@@ -26,6 +26,11 @@
 
     不能存储相同 value 的消息，并且不能阻塞读取消息
 
-. streams
+. redis streams
+
+    支持：分组消费、持久化、XACK、分组游标
 
     xadd
+    有最大长度，持续写入会丢弃最久的消息
+    redis 的 AOF 一秒写一次，可能会丢消息
+    主从复制也是异步的，可能会丢消息
